@@ -11,15 +11,9 @@
         <script src="https://cdn.tailwindcss.com"></script>
 
         {% block head_extra %}{% endblock %}
-        <style>
-            footer {
-                position: fixed !important;
-                bottom: 0 !important;
-                width: 100%;
-            }
-        </style>
+       
     </head>
-    <body class="bg-indigo-600">
+    <body class="bg-indigo-300">
         {% include 'navbar.html' %}
         {% block body %}
             <div class="lg:container lg:mx-auto" id="main">
@@ -27,9 +21,8 @@
                 {% block content %}
                 {% endblock %}
             </div>
-            {% include 'footer.html' %}
-
         {% endblock %}
+        {% include 'footer.html' %}
     </body>
 
 </html>
