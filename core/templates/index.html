@@ -1,5 +1,5 @@
 {% extends 'base.html' %} 
-<!-- {% load static %}  -->
+{% load static %} 
 
 {% block head_title %}Banking System{% endblock %} {% block content %}
 <div class="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
@@ -12,11 +12,16 @@
 
         </p>
         <div class="flex justify-end w-full">
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'transactions:transaction_report' %}" class="bg-blue-900 text-white rounded-none hover:bg-blue-700 hover:text-white hover:border-blue-900 shadow hover:shadow-lg py-2 px-4 border border-gray-900 hover:border-transparent">Statements</a>
+            {% else %}
             <a href="{% url 'register' %}" class="bg-blue-900 text-white rounded-none hover:bg-white hover:text-blue-900 hover:border-blue-900 shadow hover:shadow-lg py-2 px-4 border border-gray-900 hover:border-transparent">Register</a>
+            {% endif %}
+          
         </div>
     </div>
     <div class="w-full lg:w-1/2 lg:py-6 text-center ">
-        <!-- <img class ="rounded-2xl" src ="{% static './img/bank.jpg' %}"/> -->
+        <img class ="rounded-2xl" src ="{% static './img/bank.jpg' %}"/>
     </div>
 </div>
 
